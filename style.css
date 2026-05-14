@@ -1,13 +1,14 @@
 :root {
-    --primary: #6366f1;
-    --primary-hover: #4f46e5;
-    --secondary: #06b6d4;
-    --bg-dark: #0f172a;
-    --bg-card: rgba(30, 41, 59, 0.7);
+    --primary: #8b5cf6;
+    --primary-hover: #7c3aed;
+    --secondary: #ec4899;
+    --accent: #06b6d4;
+    --bg-dark: #020617;
+    --bg-card: rgba(30, 41, 59, 0.4);
     --text-main: #f8fafc;
     --text-muted: #94a3b8;
     --glass-border: rgba(255, 255, 255, 0.1);
-    --glass-bg: rgba(15, 23, 42, 0.8);
+    --glass-bg: rgba(2, 6, 23, 0.8);
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -29,16 +30,38 @@ body {
 /* Background gradient blobs */
 .bg-blob {
     position: fixed;
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(99, 102, 241, 0) 70%);
+    width: 600px;
+    height: 600px;
     border-radius: 50%;
     z-index: -1;
-    filter: blur(50px);
+    filter: blur(80px);
+    opacity: 0.4;
+    animation: pulse 10s infinite alternate;
 }
 
-.blob-1 { top: -100px; right: -100px; }
-.blob-2 { bottom: -100px; left: -100px; }
+.blob-1 { 
+    top: -100px; 
+    right: -100px; 
+    background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+}
+.blob-2 { 
+    bottom: -100px; 
+    left: -100px; 
+    background: radial-gradient(circle, var(--secondary) 0%, transparent 70%);
+}
+.blob-3 { 
+    top: 40%; 
+    left: 20%; 
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+    animation-delay: -5s;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1) translate(0, 0); }
+    100% { transform: scale(1.2) translate(50px, 50px); }
+}
 
 /* Navbar */
 nav {
